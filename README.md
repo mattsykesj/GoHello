@@ -1,2 +1,3 @@
-# GoHello
-Go hello world and mess around
+# Go Web App
+
+First go web app, code exploring 
