@@ -1,0 +1,34 @@
+<%: func RenderLogin (title string, loginError bool, w io.Writer) %>
+
+<%~ "layout.html" %>
+
+<%@ body { %>
+
+<div class="d-flex flex-column">
+	<div class="p-2 justify-content-center">
+		<h2>Log in</h2>
+		<form method="POST">
+			<div class="row form-group" id="username-div">
+				<label class="col-2 col-form-label pr-0" for="username">User Name</label>
+				<div class="col-6">
+					<% if loginError == true { %> 
+						<input type="text" class="form-control error" name="username" id="username">
+					<% } else { %>
+						<input type="text" class="form-control" name="username" id="username">
+					<% } %>
+					<% if loginError == true { %> 
+						<small class="validation-text" name="username-val-div">Username not found</small>
+					<% } %>
+				</div>
+				<div class="col-4 p-0">
+					<% if loginError == true { %> 
+						<i class="fa fa fa-thumbs-down my-2 validation-text" name="username-svg-error"></i>
+					<% } %>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<% } %>
+

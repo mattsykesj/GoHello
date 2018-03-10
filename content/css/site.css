@@ -1,0 +1,20 @@
+body {
+	background-color: #ECF0F1;
+}
+
+.success {
+	border-color: #3498DB;
+}
+
+.error {
+	border-color: #E74C3C;	
+}
+
+.success-text {
+	color: #3498DB;
+}
+
+.validation-text {
+	color: #E74C3C;
+}
+

@@ -1,0 +1,65 @@
+
+<%: func RenderFood (title string, user *UserVM, userFoods []string, w io.Writer) %>
+
+<%~ "layout.html" %>
+
+<%@ body { %>
+
+<div class="d-flex flex-column">
+	<div class="d-flex flex-row justify-content-around card">
+		<div class="p-2 text-center">
+			<label>User Name</label>
+			<span><%==s user.UserName %></span>
+		</div>
+		<div class="p-2 text-center">
+			<label>Target Calories</label>
+			<span><%==i user.TargetCalories %></span>
+		</div>
+		<div class="p-2 text-center">
+			<label>Target Protein</label>
+			<span><%==i user.TargetProtein %></span>
+		</div>
+		<div class="p-2 text-center">
+			<label>Target Carbohydrate</label>
+			<span><%==i user.TargetCarbohydrate %></span>
+		</div>
+		<div class="p-2 text-center">
+			<label>Target Fat</label>
+			<span><%==i user.TargetFat %></span>
+		</div>
+	</div>
+
+	<div class="d-flex flex-row justify-content-center">
+		<div class="p-2 card">
+			<div class="p-2 mx-auto">
+				<a href="/food/add/">Add food to pantry</a>
+			</div>
+			<div class="p-2 mx-auto">
+				<h2>Pantry</h2>
+			</div>
+			<% if len(userFoods) == 0 { %>
+				<div class="p-2 mx-auto">	
+					<h4>No items!</h4>
+				</div>
+			<% } %>
+
+			<% for _ , food := range userFoods { %>
+				<div class="p-2 mx-auto">
+					<%==s food %>&nbsp;<i class="fa fa-plus-square success-text"></i>
+				</div>
+			<% } %>
+		</div>
+
+		<div class="p-2 card">
+			<div class="p-2 mx-auto">
+				<h2>Meal</h2>
+			</div>
+			<div class="p-2 mx-auto">
+				Placeholder&nbsp;<i class="fa fa-minus-square validation-text"></i>
+			</div>
+
+		</div>
+	</div>
+</div>
+<% } %>
+
